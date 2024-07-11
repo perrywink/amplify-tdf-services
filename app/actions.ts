@@ -8,12 +8,15 @@ import { redirect } from "next/navigation";
 import { formatDateToSlash, incrementDateByDays } from "@/utils";
 import { dynamoDBClient } from "@/lib/dynamodb-client"
 import { revalidatePath } from "next/cache";
-import { parse } from "path";
 
 type FormState = { message: string };
 
 export async function createRequest(formData: any): Promise<FormState> {
   const parsed = formSchema.safeParse(formData);
+
+  console.log("FORM DATA", formData)
+  console.log("PARSED FORM DATA", parsed)
+
   if (!parsed.success) {
     return { message: "Incorrect data parsed" };
   }
