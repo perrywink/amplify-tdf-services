@@ -1,25 +1,26 @@
-## AWS Amplify Next.js (App Router) Starter Template
+# The Data Foundry Service Request App
 
-This repository provides a starter template for creating applications using Next.js (App Router) and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
+(Link to Public Github Repo)[https://github.com/perrywink/amplify-tdf-services]
 
-## Overview
+## Setup Instructions
 
-This template equips you with a foundational Next.js application integrated with AWS Amplify, streamlined for scalability and performance. It is ideal for developers looking to jumpstart their project with pre-configured AWS services like Cognito, AppSync, and DynamoDB.
+**Setting up AWS and the .env file**
+1. Deploy this project to AWS Amplify, and download the `amplify_outputs.json` file. Include this file in the root of the project, as specified (here)[https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/#4-set-up-local-environment]
+2. You can find an `.env.example` file in the root of this project. Copy this and rename it to `.env.local`. We will use this for the following steps.
+3. Initialize a Dynamo DB table and populate the `DYNAMODB_TABLE_NAME` env variable.accordingly. Create a user group that has full access to Dynamo DB (policy).
+4. Initialize an S3 Bucket and populate the `BUCKET_NAME_AWS` env variable accordingly. Create a user group that has full access to S3 (policy).
+5. Create a new user, and add the user to both user groups created in the previous 2 steps.
+6. Create an access key for the user, and add the id and secret under `ACCESS_KEY_ID_AWS` and `SECRET_ACCESS_KEY_AWS` respectively.
+7. Populate the `REGION_AWS` according to what region you prefer, like `ap-southeast-2`.
 
-## Features
+**Installing dependencies and running it locally**
+1. Run `npm install`
+2. Run `npm run dev` and open `localhost:3000` on the browser
 
-- **Authentication**: Setup with Amazon Cognito for secure user authentication.
-- **API**: Ready-to-use GraphQL endpoint with AWS AppSync.
-- **Database**: Real-time database powered by Amazon DynamoDB.
+## Live Site
+- The live site link is (here)[https://main.d16fbxf01y0g08.amplifyapp.com/]
+- To access the website, please create a new account and verify it via your email.
 
-## Deploying to AWS
-
-For detailed instructions on deploying your application, refer to the [deployment section](https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/#deploy-a-fullstack-app-to-aws) of our documentation.
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
+## Tradeoffs
+- For the purposes of this code challenge, I have not setup a separate environment for production and local, which would be ideal in a real-app setting.
+- The login screen style-wise is really different from the rest of the application, but given the time constraint I have and the work/configuration needed in order to make custom auth pages, I decided against it and opted for the prebuilt UI.

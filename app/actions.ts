@@ -3,20 +3,26 @@ import {
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import * as uuid from "uuid";
-import { formSchema } from "./form-schema";
+import { formSchema } from "./(auth)/create-request/form-schema";
 import { redirect } from "next/navigation";
 import { formatDateToSlash, incrementDateByDays } from "@/utils";
 import { dynamoDBClient } from "@/lib/dynamodb-client"
 import { revalidatePath } from "next/cache";
+import { parse } from "path";
 
 type FormState = { message: string };
 
 export async function createRequest(formData: any): Promise<FormState> {
-  // const data = Object.fromEntries(formData);
   const parsed = formSchema.safeParse(formData);
+  console.log(formData)
+  console.log(parsed)
 
-  if (!parsed.success || !parsed.data) {
+  if (!parsed.success) {
     return { message: "Incorrect data parsed" };
+  }
+
+  if (!parsed.data) {
+    return { message: "No data given" }
   }
 
   const {

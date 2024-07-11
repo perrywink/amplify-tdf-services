@@ -6,8 +6,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormError, FormLabel } from "@/components/ui/form";
 import { useState } from "react";
-import { castToFormData } from "@/utils";
-import { createRequest } from "./actions";
+import { createRequest } from "@/app/actions";
 import toast from "react-hot-toast"
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -25,7 +24,7 @@ export default function CreateRequestForm() {
   const onSubmit = async (data: Request) => {
     setIsSubmitting(true);
     // const formData = castToFormData(data);
-    // JSON parse because Amplify does not support complex objects into server actions
+    // JSON parse because passing complex object between server/client
     const error = await createRequest(JSON.parse(JSON.stringify(data)));
 
     if (error) {
