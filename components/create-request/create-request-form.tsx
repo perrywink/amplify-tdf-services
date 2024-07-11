@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { formSchema } from "./form-schema";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormError, FormLabel } from "@/components/ui/form";
+import { FormError, FormLabel } from "./form-helpers";
 import { useState } from "react";
 import toast from "react-hot-toast"
 import { Loader } from "lucide-react";
