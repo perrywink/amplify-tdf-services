@@ -11,9 +11,9 @@ import { revalidatePath } from "next/cache";
 
 type FormState = { message: string };
 
-export async function createRequest(formData: FormData): Promise<FormState> {
-  const data = Object.fromEntries(formData);
-  const parsed = formSchema.safeParse(data);
+export async function createRequest(formData: any): Promise<FormState> {
+  // const data = Object.fromEntries(formData);
+  const parsed = formSchema.safeParse(formData);
 
   if (!parsed.success || !parsed.data) {
     return { message: "Incorrect data parsed" };
@@ -37,8 +37,6 @@ export async function createRequest(formData: FormData): Promise<FormState> {
   } else if (severity === "High") {
     incrementDateByDays(resolutionDate, 1);
   }
-
-  console.log("CREDS", process.env.DYNAMODB_ACCESS_KEY_ID)
 
   const requestPayload = {
     id: { S: uuid.v4() },

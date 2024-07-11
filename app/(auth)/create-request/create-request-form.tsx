@@ -24,8 +24,9 @@ export default function CreateRequestForm() {
 
   const onSubmit = async (data: Request) => {
     setIsSubmitting(true);
-    const formData = castToFormData(data);
-    const error = await createRequest(formData);
+    // const formData = castToFormData(data);
+    // JSON parse because Amplify does not support complex objects into server actions
+    const error = await createRequest(JSON.parse(JSON.stringify(data)));
 
     if (error) {
       toast.error("Something went wrong :(");
