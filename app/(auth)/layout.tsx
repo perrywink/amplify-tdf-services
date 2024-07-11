@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-import { Authenticator } from "@aws-amplify/ui-react";
 import React from "react";
 import Link from "next/link";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(outputs);
 

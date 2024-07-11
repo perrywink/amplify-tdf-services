@@ -12,7 +12,7 @@ export default async function S3RenderImage({
   ...imgProps
 }: S3RenderImageProps) {
   const command = new GetObjectCommand({
-    Bucket: process.env.AWS_BUCKET_NAME!,
+    Bucket: process.env.BUCKET_NAME_AWS!,
     Key: objectName,
   });
 

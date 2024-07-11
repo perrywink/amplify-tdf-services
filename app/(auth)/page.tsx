@@ -4,7 +4,7 @@ import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
-export default function App() {
+export default function Dashboard() {
   return (
     <main className="flex flex-1 flex-col py-10">
       <section className="container flex w-full justify-between">
