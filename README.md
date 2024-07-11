@@ -1,11 +1,13 @@
 # The Data Foundry Service Request App
 
-(Link to Public Github Repo)[https://github.com/perrywink/amplify-tdf-services]
+## Live Site
+- The live site link is [here](https://main.d16fbxf01y0g08.amplifyapp.com/)
+- To access the website, please create a new account and verify it via your email. You can then use the same account to login to the site in the future.
 
 ## Setup Instructions
 
 **Setting up AWS and the .env file**
-1. Deploy this project to AWS Amplify, and download the `amplify_outputs.json` file. Include this file in the root of the project, as specified (here)[https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/#4-set-up-local-environment]
+1. Deploy this project to AWS Amplify, and download the `amplify_outputs.json` file. Include this file in the root of the project, as specified [here](https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/#4-set-up-local-environment)
 2. You can find an `.env.example` file in the root of this project. Copy this and rename it to `.env.local`. We will use this for the following steps.
 3. Initialize a Dynamo DB table and populate the `DYNAMODB_TABLE_NAME` env variable.accordingly. Create a user group that has full access to Dynamo DB (policy).
 4. Initialize an S3 Bucket and populate the `BUCKET_NAME_AWS` env variable accordingly. Create a user group that has full access to S3 (policy).
@@ -16,10 +18,6 @@
 **Installing dependencies and running it locally**
 1. Run `npm install`
 2. Run `npm run dev` and open `localhost:3000` on the browser
-
-## Live Site
-- The live site link is (here)[https://main.d16fbxf01y0g08.amplifyapp.com/]
-- To access the website, please create a new account and verify it via your email.
 
 ## Tradeoffs
 - For the purposes of this code challenge, I have not setup a separate environment for production and local, which would be ideal in a real-app setting.
