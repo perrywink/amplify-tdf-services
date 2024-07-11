@@ -10,6 +10,7 @@ import { castToFormData } from "@/utils";
 import { createRequest } from "./actions";
 import toast from "react-hot-toast"
 import { Loader } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export type Request = z.infer<typeof formSchema>;
 
@@ -19,6 +20,7 @@ export default function CreateRequestForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const router = useRouter();
 
   const onSubmit = async (data: Request) => {
     setIsSubmitting(true);
@@ -31,6 +33,7 @@ export default function CreateRequestForm() {
       toast.success("Request successfully made!");
     }
     setIsSubmitting(false);
+    router.refresh()
   };
 
   return (

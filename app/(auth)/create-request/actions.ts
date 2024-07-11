@@ -7,6 +7,7 @@ import { formSchema } from "./form-schema";
 import { redirect } from "next/navigation";
 import { formatDateToSlash, incrementDateByDays } from "@/utils";
 import { dynamoDBClient } from "@/lib/dynamodb-client"
+import { revalidatePath } from "next/cache";
 
 type FormState = { message: string };
 
@@ -62,5 +63,6 @@ export async function createRequest(formData: FormData): Promise<FormState> {
     return {message: error as string}
   }
 
+  revalidatePath("/")
   redirect("/");
 }
