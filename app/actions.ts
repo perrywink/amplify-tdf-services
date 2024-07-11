@@ -14,9 +14,6 @@ type FormState = { message: string };
 
 export async function createRequest(formData: any): Promise<FormState> {
   const parsed = formSchema.safeParse(formData);
-  console.log(formData)
-  console.log(parsed)
-
   if (!parsed.success) {
     return { message: "Incorrect data parsed" };
   }

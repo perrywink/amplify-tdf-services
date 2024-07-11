@@ -8,6 +8,9 @@ import Link from "next/link";
 import { Authenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(outputs);
+Amplify.configure(outputs, {
+  ssr: true
+});
 
 export default function AuthLayout({
   children,
