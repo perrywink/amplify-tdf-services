@@ -20,12 +20,12 @@ export default async function Dashboard() {
 
   return (
     <>
-      <nav className="navbar bg-base-300 flex justify-between">
+      <nav className="navbar bg-base-300 flex justify-between px-6">
         <h1 className="text-xl font-bold">Data Foundry Service Requests</h1>
         <Logout />
       </nav>
       <main className="grid">
-        <section className="container py-10 bg-base-200">
+        <section className="px-6 py-10 bg-base-200">
           <h2 className="font-semibold text-xl">Create a Service Request</h2>
           <p className="text-sm">
             Ensure the information is detailed for an efficient response.
@@ -33,7 +33,7 @@ export default async function Dashboard() {
           <div className="divider" />
           <CreateRequestForm />
         </section>
-        <section className="container py-10 bg-base-300 overflow-hidden">
+        <section className="p-6 bg-base-300 overflow-hidden">
           <h2 className="font-semibold text-xl">Service Requests</h2>
           <p className="text-sm">View service requests logged.</p>
           <div className="divider" />
