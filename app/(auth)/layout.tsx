@@ -5,20 +5,40 @@ import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from "@aws-amplify/ui-react";
 import React from "react";
+import Link from "next/link";
 
 Amplify.configure(outputs);
 
-export default function AuthLayout({children} : {children: React.ReactNode}) {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <nav>
-            <button onClick={signOut}>Sign out</button>
-          </nav>
+          <Navbar>
+            <button onClick={signOut} className="btn btn-outline btn-nav-sm">
+              Sign out
+            </button>
+          </Navbar>
           {children}
         </main>
       )}
     </Authenticator>
+  );
+}
+
+function Navbar({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="navbar bg-base-200">
+      <div className="flex-1">
+        <Link className="btn btn-ghost text-xl" href="/">
+          Data Foundry Services
+        </Link>
+      </div>
+      <div className="flex-none">{children}</div>
+    </div>
   );
 }
