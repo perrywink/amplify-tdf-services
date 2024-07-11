@@ -3,7 +3,7 @@ import {
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
 import * as uuid from "uuid";
-import { formSchema } from "./(auth)/create-request/form-schema";
+import { formSchema } from "./_old/create-request/form-schema";
 import { redirect } from "next/navigation";
 import { formatDateToSlash, incrementDateByDays } from "@/utils";
 import { dynamoDBClient } from "@/lib/dynamodb-client"
