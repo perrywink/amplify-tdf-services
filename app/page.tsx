@@ -2,6 +2,7 @@
 
 import Logout from "@/components/auth/logout";
 import CreateRequestForm from "@/components/create-request/create-request-form";
+import S3ImageRender from "@/components/s3-image-render";
 import { cookiesClient } from "@/utils/amplify-server-utils";
 
 export default async function Dashboard() {
@@ -26,6 +27,7 @@ export default async function Dashboard() {
       </nav>
       <main className="grid">
         <section className="px-6 py-10 bg-base-200">
+          <S3ImageRender />
           <h2 className="font-semibold text-xl">Create a Service Request</h2>
           <p className="text-sm">
             Ensure the information is detailed for an efficient response.
